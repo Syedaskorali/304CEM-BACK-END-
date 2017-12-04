@@ -1,0 +1,412 @@
+
+<!------------------------------------------------------------------------MAIN------------------------------------------------------------------------------------------>
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Alpha Luxury Cars</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+    <link rel="stylesheet" href="/css/styles.css" />
+</head>
+<!------------------------------------------------------------------------------HEAD---------------------------------------------------------------------------------->
+
+<!---------------------------------------------TEST STYLES---------------------------------------->
+
+<!---------------------------------------------TEST STYLES---------------------------------------->
+
+<!-------------------------------------------------------------------------------------BODY-------------------------------------------------------------------->
+<body data-spy="scroll" data-target=".navbar" data-offset="50">
+<!-------------------------------------------------------------------------------------NAVBAR------------------------------------------------------------------>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
+    <a class="navbar-brand" href="#">Alpha Luxury Cars</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+
+        <ul class="navbar-nav mr-auto">
+            {{#if user}}
+            <li class="nav-item ">
+                <a class="nav-link" href="#section1">Home <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#section2">Luxury Cars</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#section3">Wedding Cars</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#section4">Super Cars</a>
+            </li>
+            <li class="nav-item" >
+                <a class="nav-link" href="#section5">4 X 4</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#section6">Support</a>
+            </li>
+
+            <li class="nav-item dropdown" >
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Car Packages
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item" href="#section71">Gold Wedding package</a>
+                    <a class="dropdown-item" href="#section72">Platinum Luxury package</a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" href="#section73">Diamond Super Car package</a>
+                </div>
+            </li>
+        {{else}}
+            <li class="nav-item ">
+                <a class="nav-link" href="#section1">Home <span class="sr-only">(current)</span></a>
+            </li>
+        {{/if}}
+        </ul>
+
+        {{#if user}}
+            <li role="presentation"><a href="/">Dashboard</a></li>
+            <li role="presentation"><a href="/users/logout">Logout</a></li>
+        {{else}}
+            <li role="presentation"><a href="/users/login">Login</a></li>
+            <li role="presentation"><a href="/users/register">Register</a></li>
+        {{/if}}
+    </div>
+</nav>
+
+<!-------------------------------------------------------------------------------NAVBAR-------------------------------------------------------------------------------------->
+<!------------------------------------------------------------------------SECTION 1------------------------------------------------------------------------------------------>
+
+<div id="section1" class="container-fluid">
+    <header class="section1">
+        <h1>Alpha Luxury Cars</h1>
+        <h3>Cars without limits</h3>
+
+        <div class="S1BUTTONS">
+
+
+            <div class ="btn-awesomeS1">
+{{#if user}}
+    <a href="/users/logout" class="btnLogout btn-Logout" role="presentation" > Logout </a>
+{{else}}
+
+    <a href="" class="btnHalf btn-halfS1" data-toggle="modal" data-target="#modal_login">Sign in</a>
+    <a href="" class="btnFull btn-fullS1" data-toggle="modal" data-target="#modal_register">Register</a>
+{{/if}}
+
+            </div>
+        </div>
+    </header>
+
+
+    <!-- // Bootstrap Modal Login Popup Form -->
+    <div class="modal fade" id="modal_login" tabindex="-1" role="dialog">
+        <div class="modal-dialog" role="document">
+            <form id="modal_form_login" novalidate="novalidate" method="post" action="/users/login">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title_login">
+                            <i class="fa fa-lock mr-1"></i>LOGIN
+                        </h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span>&times;</span>
+                        </button>
+                    </div>
+
+                    <div class="modal-body">
+
+
+
+                        <div class="form-group">
+                            <label>Username</label>
+                            <input type="text" class="form-control" name="username" placeholder="Username">
+                        </div>
+                        <div class="form-group">
+                            <label>Password</label>
+                            <input type="password" class="form-control" name="password" placeholder="Password">
+                        </div>
+                        <label class="custom-control custom-checkbox">
+                            <input type="checkbox" id="modal_login_remember" class="custom-control-input" />
+                            <span class="custom-control-indicator"></span>
+                            <span class="custom-control-description">Remember me</span>
+                        </label>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">CANCEL</button>
+                        <button type="submit" class="btn btn-primary">SIGN-IN</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Bootstrap Modal Login Popup Form // -->
+
+    <!-- // Bootstrap Modal Register Popup Form -->
+    <div class="modal fade" id="modal_register" tabindex="-1" role="dialog">
+        <div class="modal-dialog" role="document">
+            <form id="modal_form_login" novalidate="novalidate" method="post" action="/users/register">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title_register">
+                            <i class="fa fa-lock mr-1"></i>REGISTER
+                        </h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span>&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+
+                        {{#if errors}}
+                            {{#each errors}}
+                                <div class="alert alert-danger">{{msg}}</div>
+                            {{/each}}
+                        {{/if}}
+                        <form method="post" action="/users/register">
+                            <div class="form-group">
+                                <label>Name</label>
+                                <input type="text" class="form-control" placeholder="Name" name="name">
+                            </div>
+                            <div class="form-group">
+                                <label>Username</label>
+                                <input type="text" class="form-control" placeholder="Username" name="username">
+                            </div>
+                            <div class="form-group">
+                                <label>Email</label>
+                                <input type="email" class="form-control" placeholder="Email" name="email">
+                            </div>
+                            <div class="form-group">
+                                <label>Password</label>
+                                <input type="password" class="form-control" placeholder="Password" name="password">
+                            </div>
+                            <div class="form-group">
+                                <label>Confirm Password</label>
+                                <input type="password" class="form-control" placeholder="Password" name="password2">
+                            </div>
+
+                        </form>
+
+
+
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">CANCEL</button>
+                        <button type="submit" class="btn btn-primary">REGISTER</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+    <!-- Bootstrap Modal Login Popup Form // -->
+
+</div>
+
+
+<!------------------------------------------------------------------------SECTION 1------------------------------------------------------------------------------------------>
+
+<!------------------------------------------------------------------------SECTION 2------------------------------------------------------------------------------------------>
+{{#if user}}
+<div id="section2" class="container-fluid">
+    <header class="section2">
+
+
+
+        <div class="row">
+            <div class="col-md-3 text-center">
+                <img src="images/img_1.png" width="150px" height="150px">
+                <br>
+                product 1 - <strong>$10</strong>
+                <br>
+                <button class="btn btn-danger my-cart-btn" data-id="1" data-name="product 1" data-summary="summary 1" data-price="10" data-quantity="1" data-image="images/img_1.png">Add to Cart</button>
+                <a href="#" class="btn btn-info">Details</a>
+            </div>
+
+            <div class="col-md-3 text-center">
+                <img src="images/img_2.png" width="150px" height="150px">
+                <br>
+                product 2 - <strong>$20</strong>
+                <br>
+                <button class="btn btn-danger my-cart-btn" data-id="2" data-name="product 2" data-summary="summary 2" data-price="20" data-quantity="1" data-image="images/img_2.png">Add to Cart</button>
+                <a href="#" class="btn btn-info">Details</a>
+            </div>
+
+            <div class="col-md-3 text-center">
+                <img src="images/img_3.png" width="150px" height="150px">
+                <br>
+                product 3 - <strong>$30</strong>
+                <br>
+                <button class="btn btn-danger my-cart-btn" data-id="3" data-name="product 3" data-summary="summary 3" data-price="30" data-quantity="1" data-image="images/img_3.png">Add to Cart</button>
+                <a href="#" class="btn btn-info">Details</a>
+            </div>
+
+            <div class="col-md-3 text-center">
+                <img src="images/img_4.png" width="150px" height="150px">
+                <br>
+                product 4 - <strong>$40</strong>
+                <br>
+                <button class="btn btn-danger my-cart-btn" data-id="4" data-name="product 4" data-summary="summary 4" data-price="40" data-quantity="1" data-image="images/img_4.png">Add to Cart</button>
+                <a href="#" class="btn btn-info">Details</a>
+            </div>
+
+            <div class="col-md-3 text-center">
+                <img src="images/img_5.png" width="150px" height="150px">
+                <br>
+                product 5 - <strong>$50</strong>
+                <br>
+                <button class="btn btn-danger my-cart-btn" data-id="5" data-name="product 5" data-summary="summary 5" data-price="50" data-quantity="1" data-image="images/img_5.png">Add to Cart</button>
+                <a href="#" class="btn btn-info">Details</a>
+            </div>
+
+        </div>
+
+
+
+    </header>
+
+</div>
+<!------------------------------------------------------------------------SECTION 2------------------------------------------------------------------------------------------>
+
+<!------------------------------------------------------------------------SECTION 3------------------------------------------------------------------------------------------>
+<div id="section3" class="container-fluid">
+    <header class="section2">
+
+    </header>
+</div>
+<!------------------------------------------------------------------------SECTION 3------------------------------------------------------------------------------------------>
+
+<!------------------------------------------------------------------------SECTION 4------------------------------------------------------------------------------------------>
+<div id="section4" class="container-fluid">
+    <header class="section4">
+
+    </header>
+</div>
+<!------------------------------------------------------------------------SECTION 4------------------------------------------------------------------------------------------>
+
+<!------------------------------------------------------------------------SECTION 5------------------------------------------------------------------------------------------>
+<div id="section5" class="container-fluid">
+    <header class="section5">
+
+    </header>
+</div>
+<!------------------------------------------------------------------------SECTION 5------------------------------------------------------------------------------------------>
+
+<!------------------------------------------------------------------------SECTION 6------------------------------------------------------------------------------------------>
+<div id="section6" class="container-fluid">
+    <header class="section2">
+
+
+        <div class="contact contact-sm">
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-12 col-lg-12">
+                        <h3 class="text-center">CONTACT US!</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <br><br>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="well well-sm">
+                        <form>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="name">
+                                            Name</label>
+                                        <input type="text" class="form-control" id="name" placeholder="Enter name" required="required" />
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="email">
+                                            Email Address</label>
+                                        <div class="input-group">
+                                <span class="input-group-addon"><span class="glyphicon glyphicon-envelope"></span>
+                                </span>
+                                            <input type="email" class="form-control" id="email" placeholder="Enter email" required="required" /></div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="name">
+                                            Subject</label>
+                                        <input type="text" class="form-control" id="name" placeholder="Enter Subject" required="required" />
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="name">
+                                            Message</label>
+                                        <textarea name="message" id="message" class="form-control" rows="9" cols="25" required="required"
+                                                  placeholder="Message"></textarea>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <button type="submit" class="btn btn-primary pull-right" id="btnContactUs"> Send Message </button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </header>
+</div>
+<!------------------------------------------------------------------------SECTION 6------------------------------------------------------------------------------------------>
+
+<!------------------------------------------------------------------------SECTION 71------------------------------------------------------------------------------------------>
+<div id="section71" class="container-fluid">
+    <header class="section2">
+
+    </header>
+</div>
+<!------------------------------------------------------------------------SECTION 71------------------------------------------------------------------------------------------>
+
+<!------------------------------------------------------------------------SECTION 72------------------------------------------------------------------------------------------>
+<div id="section72" class="container-fluid">
+    <header class="section2">
+
+    </header>
+</div>
+<!------------------------------------------------------------------------SECTION 72------------------------------------------------------------------------------------------>
+
+<!------------------------------------------------------------------------SECTION 73------------------------------------------------------------------------------------------>
+<div id="section73" class="container-fluid">
+    <header class="section2">
+
+    </header>
+
+</div>
+<!KEEPS THE CONTENT LOCKED SO USER CAN ONLY SEE FIRST SECTION>
+{{else}}
+{{/if}}
+<!------------------------------------------------------------------------SECTION 73------------------------------------------------------------------------------------------>
+<script type="text/javascript">
+
+    $(function() {
+
+        setTimeout(function() {
+            $('.fly-in-text').removeClass('hidden');
+        }, 500);
+
+    })();
+
+</script>
+
+<!-------------------------------------------------------------------------- javascripts --------------------------------------------------------------------------------->
+<!-- Optional JavaScript -->
+<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
+<script src="//code.jquery.com/jquery-3.2.0.min.js"></script>
+<script src='jquery.fullpage.min.js'></script>
+<script type="text/javascript" src='https://cdnjs.cloudflare.com/ajax/libs/fastclick/1.0.6/fastclick.min.js'></script>
+
+
+</body>
+</html>
+
