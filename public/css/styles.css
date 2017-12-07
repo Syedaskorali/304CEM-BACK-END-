@@ -188,7 +188,7 @@ p {
 
 .section2 {
   height: 100vh;
-  background-image: url(/images/SuperCarPics/Bugatti.jpg);
+  background-image: url(/images/SuperCarPics/Pagani.jpg);
   background-size: cover;
   background-position: center;
   margin-bottom: 50px;
@@ -215,7 +215,7 @@ p {
 
 .section3 {
   height: 100vh;
-  background-image: url(/images/SuperCarPics/Bugatti.jpg);
+  background-image: url(/images/SuperCarPics/Phantom.jpg);
   background-size: cover;
   background-position: center;
   margin-bottom: 50px;
@@ -242,7 +242,7 @@ p {
 
 .section4 {
   height: 100vh;
-  background-image: url(/images/SuperCarPics/Bugatti.jpg);
+  background-image: url(/images/SuperCarPics/Koenigsegg.jpg);
   background-size: cover;
   background-position: center;
   margin-bottom: 50px;
@@ -269,7 +269,7 @@ p {
 
 .section5 {
   height: 100vh;
-  background-image: url(/images/SuperCarPics/Bugatti.jpg);
+  background-image: url(/images/SuperCarPics/G63.jpg);
   background-size: cover;
   background-position: center;
   margin-bottom: 50px;
@@ -296,7 +296,7 @@ p {
 
 .section6 {
   height: 100vh;
-  background-image: url(/images/SuperCarPics/Bugatti.jpg);
+  background-image: url(/images/SuperCarPics/Mercedes.jpg);
   background-size: cover;
   background-position: center;
   margin-bottom: 50px;
@@ -323,7 +323,7 @@ p {
 
 .section71 {
   height: 100vh;
-  background-image: url(/images/SuperCarPics/Bugatti.jpg);
+  background-image: url(/images/SuperCarPics/Phantom.jpg);
   background-size: cover;
   background-position: center;
   margin-bottom: 50px;
@@ -350,7 +350,7 @@ p {
 
 .section72 {
   height: 100vh;
-  background-image: url(/images/SuperCarPics/Bugatti.jpg);
+  background-image: url(/images/SuperCarPics/Lamborghini.jpg);
   background-size: cover;
   background-position: center;
   margin-bottom: 50px;
@@ -377,7 +377,7 @@ p {
 
 .section73 {
   height: 100vh;
-  background-image: url(/images/SuperCarPics/Bugatti.jpg);
+  background-image: url(/images/SuperCarPics/mclaren.jpg);
   background-size: cover;
   background-position: center;
   margin-bottom: 50px;
@@ -496,6 +496,13 @@ p {
 .LName_text
 {
   color:black;
+
+}
+
+
+.S73Popover1
+{
+
 }
 /*--------------------------------------------------------------------------------------------------------------------*/
 

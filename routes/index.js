@@ -3,8 +3,27 @@ var router = express.Router();
 
 // Get Homepage
 router.get('/', ensureAuthenticated, function(req, res){
-	res.render('index');
+	res.render('index', {
+		user: req.user
+	});
 });
+
+// Get Username
+router.get('/get_user_name', function (req, res) {
+	res.send({
+		name: req.user.name,
+		email: req.user.email
+	});
+	//req.user = get the current logged in user      .name = get name of the current user from database
+});
+
+
+
+
+
+
+
+
 
 function ensureAuthenticated(req, res, next){
 	if(req.isAuthenticated()){

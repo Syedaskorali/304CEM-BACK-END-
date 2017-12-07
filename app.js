@@ -10,8 +10,8 @@ var passport = require('passport');
 var LocalStrategy = require('passport-local').Strategy;
 var mongo = require('mongodb');
 var mongoose = require('mongoose');
-
-mongoose.connect('mongodb://localhost/loginapp');
+//Connection to mlab server
+mongoose.connect('mongodb://t:t@ds129156.mlab.com:29156/loginsystem');
 var db = mongoose.connection;
 
 var routes = require('./routes/index');
@@ -73,7 +73,6 @@ app.use(function (req, res, next) {
   res.locals.user = req.user || null;
   next();
 });
-
 
 
 app.use('/', routes);

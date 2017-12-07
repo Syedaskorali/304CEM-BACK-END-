@@ -3,6 +3,7 @@ var router = express.Router();
 var passport = require('passport');
 var LocalStrategy = require('passport-local').Strategy;
 
+
 var User = require('../models/user');
 
 // Register
@@ -31,6 +32,7 @@ router.post('/register', function(req, res){
 	req.checkBody('password', 'Password is required').notEmpty();
 	req.checkBody('password2', 'Passwords do not match').equals(req.body.password);
 
+
 	var errors = req.validationErrors();
 
 	if(errors){
@@ -52,7 +54,7 @@ router.post('/register', function(req, res){
 
 		req.flash('success_msg', 'You are registered and can now login');
 
-		res.redirect('/users/login');
+		res.redirect('/');
 	}
 });
 
@@ -99,4 +101,14 @@ router.get('/logout', function(req, res){
 	res.redirect('/users/login');
 });
 
+
+
+router.get('/getName');
+
+
+
+
+
+
 module.exports = router;
+
